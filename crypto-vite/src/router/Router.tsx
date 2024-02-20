@@ -1,12 +1,14 @@
-import { lazy } from 'react';
-
 import RouterNames from './RouterNames';
 
 import { Routes, Route } from 'react-router-dom';
 
-const Profile = lazy(() => import('../pages/Profile'));
-const Home = lazy(() => import('../pages/Home'));
-const Market = lazy(() => import('../pages/Market'));
+import Market from '../pages/Market';
+import Profile from '../pages/Profile';
+import Home from '../pages/Home';
+
+// const Profile = lazy(() => import('../pages/Profile'));
+// const Home = lazy(() => import('../pages/Home'));
+// const Market = lazy(() => import('../pages/Market'));
 
 const Router = () => {
   return (
