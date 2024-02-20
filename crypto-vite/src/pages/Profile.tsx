@@ -1,12 +1,12 @@
 import Header from '../components/Header/Header';
 
-const Home = () => {
+const Profile = () => {
   return (
     <div>
       <Header />
-      home
+      profile
     </div>
   );
 };
 
-export default Home;
+export default Profile;
