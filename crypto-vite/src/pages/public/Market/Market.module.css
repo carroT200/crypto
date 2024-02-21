@@ -1,0 +1,18 @@
+.menu {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  border-radius: 40px;
+  background-color: #0b3451;
+}
+
+.text {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+
+  height: fit-content;
+}
