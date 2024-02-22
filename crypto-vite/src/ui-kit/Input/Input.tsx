@@ -1,24 +1,61 @@
+import { useState, forwardRef, useMemo } from 'react';
+
 import classNames from 'classnames';
+
+import Eye from '../../assets/icons/Eye.svg?react';
+import Eyeoff from '../../assets/icons/Eye.svg?react';
 
 import styles from './Input.module.css';
 
-interface IInputProps extends React.HTMLAttributes<HTMLDivElement> {
-  icon?: React.ReactNode;
-  text: string;
+interface IInputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'placeholder'> {
+  invalid?: boolean;
+  value: string;
+  placeholder: string;
 }
 
-const Input = ({ className, icon, text, ...props }: IInputProps) => {
-  return (
-    <div className={classNames(styles.input__wrapper, className)} {...props}>
-      <label htmlFor={text} className={styles.label}>
-        {text}
-      </label>
-      <div className={styles.wrapper}>
-        {icon && <div className={styles.icon__wrapper}>{icon}</div>}
-        <input className={styles.input} type="text" id={text} />
+const Input = forwardRef<HTMLInputElement, IInputProps>(
+  ({ value, placeholder, type, invalid, className, id, ...props }, ref) => {
+    const [isHiding, setIsHiding] = useState<boolean>(true);
+
+    const inputType = useMemo<React.HTMLInputTypeAttribute | undefined>(() => {
+      if (type === 'password') {
+        if (isHiding) return 'password';
+        return 'text';
+      }
+      return type;
+    }, [type, isHiding]);
+
+    const onToggleHide = () => {
+      setIsHiding((prev) => !prev);
+    };
+    return (
+      <div
+        className={classNames(
+          styles.input__wrapper,
+          {
+            [styles['invalid--input']]: invalid,
+          },
+          className
+        )}
+      >
+        <label className={styles.label} htmlFor={id}>
+          {placeholder}
+        </label>
+        <input
+          id={id}
+          type={inputType}
+          value={value}
+          className={styles.input}
+          ref={ref}
+          {...props}
+        />
+        <button onClick={onToggleHide} className={styles.icon}>
+          {inputType === 'password' ? <Eye /> : <Eyeoff />}
+        </button>
       </div>
-    </div>
-  );
-};
+    );
+  }
+);
 
 export default Input;
