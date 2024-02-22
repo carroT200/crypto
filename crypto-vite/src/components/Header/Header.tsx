@@ -10,7 +10,9 @@ const Header = ({
 }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <div className={classNames(styles.header, className)} {...props}>
-      <p>dsfsdfsdfs</p>
+      <NavLink className={styles.logo} to="/">
+        BUY-CRYPTO
+      </NavLink>
       <div>
         <NavLink className={styles.link} to="/">
           Home

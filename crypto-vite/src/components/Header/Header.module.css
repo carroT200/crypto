@@ -5,7 +5,13 @@
   justify-content: space-around;
   align-items: center;
 
-  margin-top: 40px;
+  margin-top: 60px;
+}
+
+.logo {
+  color: #fff;
+  font-size: 26px;
+  text-decoration: none;
 }
 
 .link {
@@ -15,7 +21,7 @@
   font-weight: 450;
 
   color: #fff;
-  padding: 20px;
+  padding: 20px 40px;
   border-radius: 10px;
   text-transform: none;
 }

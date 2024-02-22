@@ -1,3 +1,6 @@
+.market__wrapper {
+  padding: 0 40px;
+}
 .menu {
   width: 100%;
 
@@ -7,6 +10,8 @@
 
   border-radius: 40px;
   background-color: #0b3451;
+
+  margin: 60px 0;
 }
 
 .text {

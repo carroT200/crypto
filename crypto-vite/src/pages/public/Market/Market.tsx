@@ -22,7 +22,7 @@ const Market = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.market__wrapper}>
       <Header />
       <div className={styles.menu}>
         <p className={styles.text}>Name</p>
