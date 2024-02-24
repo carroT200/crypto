@@ -10,7 +10,7 @@ import styles from './Input.module.css';
 interface IInputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'placeholder'> {
   invalid?: boolean;
-  value: string;
+  value?: string;
   placeholder: string;
 }
 
