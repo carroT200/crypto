@@ -40,9 +40,6 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
           className
         )}
       >
-        <label className={styles.label} htmlFor={id}>
-          {placeholder}
-        </label>
         <input
           id={id}
           type={inputType}
@@ -51,6 +48,9 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
           ref={ref}
           {...props}
         />
+        <label className={styles.label} htmlFor={id}>
+          {placeholder}
+        </label>
         {type === 'password' && value && (
           <button type="button" onClick={onToggleHide} className={styles.icon}>
             {inputType === 'password' ? <Eye /> : <Eyeoff />}

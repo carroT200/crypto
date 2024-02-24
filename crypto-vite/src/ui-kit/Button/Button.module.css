@@ -1,0 +1,21 @@
+.button__wrapper {
+  padding: 9px 36px;
+
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+
+  font-size: 18px;
+}
+
+.primary--button {
+  background-color: transparent;
+
+  color: rgb(132, 8, 132);
+  border: 3px solid rgb(132, 8, 132);
+}
+
+.secondary--button {
+  background-color: rgb(132, 8, 132);
+  color: #fff;
+}

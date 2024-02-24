@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 
 import { NavLink } from 'react-router-dom';
+import Button from '@src/ui-kit/Button/Button';
 
 import styles from '../Header/Header.module.css';
 
@@ -24,7 +25,7 @@ const Header = ({
           Profile
         </NavLink>
         <input className={styles.input} type="text" />
-        <button className={styles.button}>Search</button>
+        <Button variant="secondary">Search</Button>
       </div>
     </div>
   );

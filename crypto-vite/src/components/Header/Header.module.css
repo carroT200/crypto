@@ -32,21 +32,6 @@
   transition: 0.3s;
 }
 
-.button {
-  padding: 9px 36px;
-
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 27px;
-
-  color: white;
-  background: linear-gradient(90deg, #57199e 0%, #c64bfb 100%);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-  font-size: 18px;
-}
-
 .button:hover {
   background: linear-gradient(90deg, #8a55c6 0%, #c168e8 100%);
   transition: 0.2s;

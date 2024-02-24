@@ -3,15 +3,16 @@ import classNames from 'classnames';
 import styles from './Button.module.css';
 import { forwardRef } from 'react';
 
-interface IButtomProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IButtomProps extends React.HTMLAttributes<HTMLButtonElement> {
   icon?: React.ReactNode;
-  variant?: 'primary' | 'secondary';
+  variant: 'primary' | 'secondary';
 }
 
 const Button = forwardRef<HTMLButtonElement, IButtomProps>(
-  ({ className, icon, children, variant = 'primary', ...props }, ref) => {
+  ({ className, icon, children, variant = 'secondary', ...props }, ref) => {
     return (
-      <div
+      <button
+        ref={ref}
         className={classNames(
           styles.button__wrapper,
           {
@@ -22,11 +23,9 @@ const Button = forwardRef<HTMLButtonElement, IButtomProps>(
         )}
         {...props}
       >
-        <button ref={ref} className={styles.button}>
-          {children}
-          {icon && <div className={styles.icon}>{icon}</div>}
-        </button>
-      </div>
+        {children}
+        {icon && <div className={styles.icon}>{icon}</div>}
+      </button>
     );
   }
 );
