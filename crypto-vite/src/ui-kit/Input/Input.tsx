@@ -2,8 +2,8 @@ import { useState, forwardRef, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import Eye from '../../assets/icons/Eye.svg?react';
-import Eyeoff from '../../assets/icons/Eye.svg?react';
+import Eye from '@assets/icons/Eye.svg?react';
+import Eyeoff from '@assets/icons/Eye-off.svg?react';
 
 import styles from './Input.module.css';
 
@@ -29,6 +29,7 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
     const onToggleHide = () => {
       setIsHiding((prev) => !prev);
     };
+
     return (
       <div
         className={classNames(
@@ -50,9 +51,11 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
           ref={ref}
           {...props}
         />
-        <button onClick={onToggleHide} className={styles.icon}>
-          {inputType === 'password' ? <Eye /> : <Eyeoff />}
-        </button>
+        {type === 'password' && value && (
+          <button type="button" onClick={onToggleHide} className={styles.icon}>
+            {inputType === 'password' ? <Eye /> : <Eyeoff />}
+          </button>
+        )}
       </div>
     );
   }
