@@ -1,5 +1,7 @@
 import styles from './Card.module.css';
 
+import Button from '@src/ui-kit/Button/Button';
+
 import ICard from '../../types/card';
 
 const Card = (props: ICard) => {
@@ -11,7 +13,7 @@ const Card = (props: ICard) => {
       <p className={styles.title}>{props.name}</p>
       <p className={styles.price}>{props.current_price} USD</p>
       <input className={styles.input} type="number" min={0} />
-      <button className={styles.button}>Buy</button>
+      <Button variant="primary">Buy</Button>
     </div>
   );
 };

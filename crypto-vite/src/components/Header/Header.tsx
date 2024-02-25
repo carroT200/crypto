@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
 import { NavLink } from 'react-router-dom';
-import Button from '@src/ui-kit/Button/Button';
+import Logo from '@assets/images/NFTVerse.svg?react';
 
 import styles from '../Header/Header.module.css';
 
@@ -12,7 +12,7 @@ const Header = ({
   return (
     <div className={classNames(styles.header, className)} {...props}>
       <NavLink className={styles.logo} to="/">
-        BUY-CRYPTO
+        <Logo />
       </NavLink>
       <div>
         <NavLink className={styles.link} to="/">
@@ -24,8 +24,6 @@ const Header = ({
         <NavLink className={styles.link} to="/profile">
           Profile
         </NavLink>
-        <input className={styles.input} type="text" />
-        <Button variant="secondary">Search</Button>
       </div>
     </div>
   );

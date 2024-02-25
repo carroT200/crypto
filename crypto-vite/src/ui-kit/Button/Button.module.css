@@ -6,6 +6,9 @@
   border-radius: 10px;
 
   font-size: 18px;
+  border: none;
+
+  transition: all 250ms;
 }
 
 .primary--button {
@@ -13,6 +16,13 @@
 
   color: rgb(132, 8, 132);
   border: 3px solid rgb(132, 8, 132);
+}
+
+.primary--button:hover,
+.secondary--button:hover,
+.secondary--button:active,
+.primary--button:active {
+  background-color: rgb(248, 158, 248);
 }
 
 .secondary--button {
