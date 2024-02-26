@@ -1,0 +1,68 @@
+.sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100vh;
+  width: fit-content;
+
+  padding: 20px;
+  border-radius: 4px;
+  z-index: 15;
+
+  inset: auto;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  transform: none;
+
+  background-color: #fff;
+
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sidebar[data-state='closed'] {
+  animation: contentHide 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(100%, 0%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes overlayHide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes contentHide {
+  from {
+    opacity: 1;
+    transform: translate(0%, 0%);
+  }
+  to {
+    opacity: 0;
+    transform: translate(100%, 0%);
+  }
+}

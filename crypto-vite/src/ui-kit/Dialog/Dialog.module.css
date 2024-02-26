@@ -1,0 +1,123 @@
+.dialog__overlay {
+  width: 100%;
+
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dialog__overlay[data-state='closed'] {
+  animation: overlayHide 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dialog__content {
+  width: 100%;
+  border-radius: 4px;
+  padding: 16px;
+
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background-color: #fff;
+
+  z-index: 10;
+
+  animation: contentShowMobile 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dialog__content[data-state='closed'] {
+  animation: contentHideMobile 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.icon__button {
+  margin-bottom: 12px;
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlayHide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes contentHide {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, 10%) scale(0.96);
+  }
+}
+
+@keyframes contentShowMobile {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 100%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+@keyframes contentHideMobile {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -44%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, 100%) scale(0.96);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dialog__content {
+    width: auto;
+
+    inset: auto;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    padding: 24px;
+
+    animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .dialog__content[data-state='closed'] {
+    animation: contentHide 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
