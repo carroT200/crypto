@@ -1,0 +1,29 @@
+.tabs__trigger {
+  font-weight: 600;
+
+  padding-bottom: 6px;
+
+  color: rgb(136, 132, 132);
+
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  text-transform: uppercase;
+}
+
+.tabs__trigger--large {
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.tabs__trigger--medium {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.tabs__trigger:not(:disabled)[data-state='active'] {
+  border-bottom: 2px solid rgb(62, 61, 61);
+  color: rgb(0, 0, 0);
+}
