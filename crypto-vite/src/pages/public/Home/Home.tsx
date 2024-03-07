@@ -1,12 +1,14 @@
 import Header from '../../../components/Header/Header';
-import Input from '../../../ui-kit/Input/Input';
+
+import Drops from './Drops/Drops';
+
+import styles from './Home.module.css'
 
 const Home = () => {
   return (
-    <div>
+    <div className={styles.home}>
       <Header />
-      home
-      <Input placeholder="password" />
+      <Drops />
     </div>
   );
 };

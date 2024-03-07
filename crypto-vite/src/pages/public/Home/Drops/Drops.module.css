@@ -1,0 +1,81 @@
+.wrapper {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.photo__wrapper {
+  width: 50%;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.medusa {
+  width: 65%;
+  height: auto;
+
+  z-index: 2;
+}
+
+.swiper__wrapper {
+  width: 50%;
+}
+
+.advantages__wrapper {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  background-image: url('../../../../assets/icons/Line.svg');
+  background-repeat: no-repeat;
+
+  padding-top: 15px;
+}
+
+.advantage {
+  font-weight: 500;
+  font-size: 48px;
+  background: linear-gradient(180deg, #6213be 57.6%, rgba(0, 0, 0, 0) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  margin: 0 50px 0 0;
+  padding: 0;
+}
+
+.button {
+  display: flex;
+
+  margin-bottom: 20px;
+}
+
+.advantage__title {
+  display: block;
+
+  font-weight: 300;
+  font-size: 34px;
+  color: #fff;
+  opacity: 0.7;
+
+  margin: 0;
+  padding: 0;
+}
+
+.nft {
+  font-weight: 700;
+  font-size: 118px;
+  color: #fff;
+
+  position: absolute;
+  bottom: 20%;
+  right: 15%;
+
+  opacity: 0.9;
+}

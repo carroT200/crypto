@@ -23,8 +23,8 @@ const Button = forwardRef<HTMLButtonElement, IButtomProps>(
         )}
         {...props}
       >
-        {children}
         {icon && <div className={styles.icon}>{icon}</div>}
+        {children}
       </button>
     );
   }

@@ -22,8 +22,8 @@ const MenuNavLink = ({
     }
     {...props}
   >
-    <div className={styles.icon}>{icon}</div>
     {children}
+    {icon && <div className={styles.icon}>{icon}</div>}
   </NavLink>
 );
 
