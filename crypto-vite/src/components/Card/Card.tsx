@@ -1,29 +1,38 @@
-import { useAppDispatch, useAppSelector } from '@src/store/slices/hook';
-// import { useState } from 'react';
+import { useAppDispatch } from '@src/store/slices/hook';
 
-import { useMemo } from 'react';
 import Button from '@src/ui-kit/Button/Button';
 
 import ICard from '../../types/card';
 
 import styles from './Card.module.css';
-import { addItem } from '@src/store/slices/cartSlice';
+import { addItem, removeItem } from '@src/store/slices/cartSlice';
 
-const Card: React.FC<ICard> = ({ name, current_price, id, image }) => {
-  // const [quantity, setQuantity] = useState<number>(0);
-  const items = useAppSelector((state) => state.cart.items);
-
-  const { quantity, itemTotalPrice } = useMemo(
-    () => ({
-      quantity: items.filter((item) => item.name === name).length,
-      itemTotalPrice: items
-        .filter((item) => item.name === name)
-        .reduce((acc, item) => acc + item.current_price, 0),
-    }),
-    [items, name]
-  );
-
+const Card: React.FC<ICard> = ({ name, current_price, id, image, qty }) => {
   const dispatch = useAppDispatch();
+
+  const addCartToCartHandler = () => {
+    dispatch(
+      addItem({
+        id: id,
+        name: name,
+        image: image,
+        current_price: current_price,
+        qty: 1,
+      })
+    );
+  };
+
+  const removeItemFromCartHandler = () => {
+    dispatch(
+      removeItem({
+        id: id,
+        name: name,
+        image: image,
+        current_price: current_price,
+        qty: 1,
+      })
+    );
+  };
 
   return (
     <div className={styles.card}>
@@ -32,22 +41,13 @@ const Card: React.FC<ICard> = ({ name, current_price, id, image }) => {
       </div>
       <p className={styles.title}>{name}</p>
       <p className={styles.price}>{current_price} USD</p>
-      <p className={styles.price}>quantity:{quantity} </p>
-      <p className={styles.price}>Total items price:{itemTotalPrice} </p>
-      <Button
-        variant="primary"
-        onClick={() =>
-          dispatch(
-            addItem({
-              id: id,
-              name: name,
-              image: image,
-              current_price: current_price,
-            })
-          )
-        }
-      >
-        Add to cart
+      <p className={styles.price}>quantity:{qty} </p>
+
+      <Button variant="primary" onClick={addCartToCartHandler}>
+        +
+      </Button>
+      <Button variant="primary" onClick={removeItemFromCartHandler}>
+        -
       </Button>
     </div>
   );

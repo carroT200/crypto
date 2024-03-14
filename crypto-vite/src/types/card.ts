@@ -3,6 +3,7 @@ interface ICard {
   name: string;
   current_price: number;
   image: string;
+  qty?: number | null;
 }
 
 export default ICard;
