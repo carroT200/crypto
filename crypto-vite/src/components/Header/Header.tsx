@@ -6,10 +6,11 @@ import classNames from 'classnames';
 
 import { NavLink } from 'react-router-dom';
 import Dialog from '@src/ui-kit/Dialog/Dialog';
-import Sidebar from '@src/ui-kit/Sidebar/Sidebar';
+import HeaderSidebar from './HeaderSidebar/HeaderSideBar';
 import Card from '../Card/Card';
 
-import Cart from '@assets/icons/cart.svg?react';
+import CartIcon from '@assets/icons/cart.svg?react';
+import BurgerIcon from '@assets/icons/burger.svg?react';
 
 import styles from '../Header/Header.module.css';
 
@@ -36,6 +37,7 @@ const Header = ({
   const sideBarHandler = () => {
     setSidebarOpen((prev) => !prev);
   };
+
   // const uniqueItems = items.reduce<IItems[]>((acc, item) => {
   //   if (!acc.find((v) => v.name == item.name)) {
   //     acc.push(item);
@@ -49,7 +51,7 @@ const Header = ({
         Delivery.com
       </NavLink>
       <div className={styles.links__wrapper}>
-        {isTablet && (
+        {!isTablet && (
           <div>
             <NavLink className={styles.link} to="/">
               Home
@@ -63,12 +65,12 @@ const Header = ({
           </div>
         )}
         <button onClick={DialogHandler} className={styles.icon__button}>
-          <Cart />
+          <CartIcon />
           <p className={styles.number}>{totalCartCount}</p>
         </button>
         {isTablet && (
           <button onClick={sideBarHandler} className={styles.icon__button}>
-            open
+            <BurgerIcon />
           </button>
         )}
       </div>
@@ -85,17 +87,7 @@ const Header = ({
           />
         ))}
       </Dialog>
-      <Sidebar open={sidebarOpen} onOpenChange={sideBarHandler}>
-        <NavLink className={styles.sidebar__link} to="/">
-          Home
-        </NavLink>
-        <NavLink className={styles.sidebar__link} to="/market">
-          Market
-        </NavLink>
-        <NavLink className={styles.sidebar__link} to="/profile">
-          Profile
-        </NavLink>
-      </Sidebar>
+      <HeaderSidebar open={sidebarOpen} onOpenChange={sideBarHandler} />
     </div>
   );
 };
